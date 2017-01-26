@@ -56,7 +56,9 @@ function deal_with_ssh_keypair()
         read -s DEVOPS
         sshpass -p $DEVOPS ssh devops@ubuntu "echo $DEVOPS > $REMOTE_DEVOPS" 
         if [ $? -ne 0 ]; then
-            $WRITE_LOG "ERROR: Please ensure that you have sshpass package installed on your system"
+            $WRITE_LOG "ERROR: Incorrect password for 'devops' user. Exiting.."
+            rm -f ${HOME}/.ssh/id_petclinic*
+            exit -1
         fi
         $WRITE_LOG "INFO: Copying the public key to the server"
         sshpass -p $DEVOPS ssh-copy-id devops@ubuntu
