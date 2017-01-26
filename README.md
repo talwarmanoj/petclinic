@@ -4,6 +4,8 @@
     
     1. Ensure that the hostname of tomcat deployment server i.e. ubuntu should be resovable either via DNS or via an entry in /etc/hosts
     2. Install sshpass package on your system where you will run this code
+    For example, if you are on Ubuntu, you can run:
+        sudo apt-get install sshpass
 
 ### Deployment 
 In order to deploy the war file to tomcat, simply clone this repository and then run:
