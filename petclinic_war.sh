@@ -10,6 +10,7 @@ source helperfiles/petclinic_functions.sh
 case "$1" in
     deploy)
         start_with_clean_slate
+        check_tomcat_server_ping
         check_for_sshpass_package
         deal_with_ssh_keypair
         clone_repo_from_github
@@ -20,6 +21,7 @@ case "$1" in
         deploy_new_war_file
         ;;
     rollback)
+        check_tomcat_server_ping
         check_for_sshpass_package
         rollback_to_previous_version
         ;;
