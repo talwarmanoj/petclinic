@@ -11,7 +11,7 @@ WRITE_LOG=echo
 function start_with_clean_slate()
 {
     cd $HOME
-    rm -rf ./grails-petclic
+    rm -rf ${HOME}/grails-petclinic
 }
 
 # Pre-requisite: check whether sshpass is installed
@@ -60,6 +60,7 @@ function deal_with_ssh_keypair()
 function clone_repo_from_github()
 {
     $WRITE_LOG "INFO: Cloning the grails-petclinic repo from github"
+    cd $HOME
     git clone https://github.com/secretescapes/grails-petclinic.git
     if [ $? -ne 0 ]; then
         $WRITE_LOG "ERROR: Could not clone grails-petclinic repo from github"
@@ -72,7 +73,7 @@ function generate_new_war_file()
 {
     $WRITE_LOG "INFO: Generating the new war file"
     cd ${HOME}/grails-petclinic
-    #./grailsw war
+    ./grailsw war
     if [ $? -ne 0 ]; then
        $WRITE_LOG "ERROR: Could not clone grails-petclinic repo"
        exit -1
