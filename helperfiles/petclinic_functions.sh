@@ -10,8 +10,20 @@ WRITE_LOG=echo
 # Do the tidy up at the beginning
 function start_with_clean_slate()
 {
+    $WRITE_LOG "START: Starting the deployment"
     cd $HOME
     rm -rf ${HOME}/grails-petclinic
+}
+
+# Pre-requisite: check that we can ping the tomcat server i.e. ubuntu
+function check_tomcat_server_ping
+{
+    $WRITE_LOG "INFO: Checking to see that we can ping the tomcat server i.e. ubuntu"
+    ping -c 3 ubuntu
+    if [ $? -ne 0 ]; then
+        $WRITE_LOG "ERROR: Can't ping the tomcat server. Exiting.."
+        exit -1
+    fi
 }
 
 # Pre-requisite: check whether sshpass is installed
