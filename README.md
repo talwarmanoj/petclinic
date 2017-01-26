@@ -13,6 +13,7 @@ In order to deploy the war file to tomcat, simply clone this repository and then
     bash petclinic_war.sh deploy
 
 for deploying a newly created war file to the tomcat server.
+**Note:** When you deploy for the first time, you will need to ask you System Administrator to manually enter the password of **devops** user. That's just a one off. It won't be required for running further deployments.
 
 ### Rollback
 To rollback to the previous war file run:
