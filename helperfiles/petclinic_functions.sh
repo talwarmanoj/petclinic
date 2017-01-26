@@ -148,7 +148,7 @@ function rollback_to_previous_version()
     if [ -e "$PRIVATE_KEY_FILE" ]; then
         ssh -i $PRIVATE_KEY_FILE devops@ubuntu "ls $BACKUP_WAR_FILE > /dev/null"
         if [ $? -eq 0 ]; then
-            ssh -i $PRIVATE_KEY_FILE devops@ubuntu "diff $REMOTE_WAR_FILE $BACKUP_WAR_FILE"
+            ssh -i $PRIVATE_KEY_FILE devops@ubuntu "diff $REMOTE_WAR_FILE $BACKUP_WAR_FILE > /dev/null"
             if [ $? -eq 0 ]; then
                 $WRITE_LOG "WARNING: Old and new war files are the same. There is no point in rolling back. Quitting.."
                 exit -1
