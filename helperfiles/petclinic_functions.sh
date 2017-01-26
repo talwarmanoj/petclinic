@@ -19,7 +19,7 @@ function start_with_clean_slate()
 function check_tomcat_server_ping
 {
     $WRITE_LOG "INFO: Checking to see that we can ping the tomcat server i.e. ubuntu"
-    ping -c 3 ubuntu
+    ping -c 3 ubuntu > /dev/null
     if [ $? -ne 0 ]; then
         $WRITE_LOG "ERROR: Can't ping the tomcat server. Exiting.."
         exit -1
