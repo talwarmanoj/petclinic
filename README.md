@@ -1,12 +1,16 @@
 # Petclinic deployment automation
 
+### Prerequisites
+    
+    1. Ensure that the hostname of tomcat deployment server i.e. ubuntu should be resovable either via DNS or via an entry in /etc/hosts
+    2. Install sshpass package on your system where you will run this code
+
 ### Deployment 
 In order to deploy the war file to tomcat, simply clone this repository and then run:
 
     bash petclinic_war.sh deploy
 
 for deploying a newly created war file to the tomcat server.
-##### Note: Before running the deploy, please ensure that the hostname of deployment server i.e. ubuntu should be resovable either via DNS or via an entry in /etc/hosts
 
 ### Rollback
 To rollback to the previous war file run:
