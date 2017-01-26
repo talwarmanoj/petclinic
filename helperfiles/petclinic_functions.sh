@@ -152,7 +152,7 @@ function rollback_to_previous_version()
         if [ $? -eq 0 ]; then
             ssh -i $PRIVATE_KEY_FILE devops@ubuntu "diff $REMOTE_WAR_FILE $BACKUP_WAR_FILE > /dev/null"
             if [ $? -eq 0 ]; then
-                $WRITE_LOG "WARNING: Old and new war files are the same. There is no point in rolling back. Quitting.."
+                $WRITE_LOG "WARNING: Old and new war files are the same. There is no point in rolling back. Exiting.."
                 exit -1
             fi 
             ssh -i $PRIVATE_KEY_FILE devops@ubuntu "cat $REMOTE_DEVOPS | sudo -p '' -S systemctl stop tomcat7" && \
